@@ -1,0 +1,28 @@
+[{
+  "name": "Nordea",
+  "id": 87654321,
+  "secret": "LEHTI",
+  "url": "https://tupas.nordea.fi/cgi-bin/SOLO3011",
+  "version": "0002",
+  "key": "0001",
+  "type": "01",
+  "number": "200"
+}, {
+  "name": "Osuuspankki",
+  "id": "Esittelymyyja",
+  "secret": "Esittelykauppiaansalainentunnus",
+  "url": "https://kultaraha.op.fi/cgi-bin/krcgi",
+  "version": "0003",
+  "key": "0001",
+  "type": "02",
+  "number": "500"
+}, {
+  "name": "Danskebank",
+  "id": "000000000000",
+  "secret": "pAwfvWTD7g9etWGNTVR5zCj5EhHt5yuHdLrxQH2BD5gZxk7xBUrfqubtYv8vZvs4",
+  "url": "https://verkkopankki.sampopankki.fi/SP/tupaha/TupahaApp",
+  "version": "0003",
+  "key": "0001",
+  "type": "01",
+  "number": "800"
+}]
