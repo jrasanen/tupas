@@ -2,9 +2,16 @@ import * as R from 'ramda';
 import conf from './config';
 import * as u from './utils';
 
+// Action type for TUPAS is always 701, according to
+// http://www.finanssiala.fi/maksujenvalitys/dokumentit/Tupas-varmennepalvelu_v23c.pdf
 const TUPAS_ACTION_TYPE: number = 701;
-const TUPAS_ALG_TYPE: string = '03'; // sha256
 
+// 03 means sha256. Tupas supports some other's too, but don't even bother
+// to support those.
+const TUPAS_ALG_TYPE: string = '03';
+
+// A01 mac fields are used for the first part:
+// generate - when we generate the request payload
 const A01_MAC_FIELDS: string[] = [
   'A01Y_ACTION_ID',
   'A01Y_VERS',
@@ -19,6 +26,9 @@ const A01_MAC_FIELDS: string[] = [
   'A01Y_ALG',
   'secret'];
 
+// B02 is used for the latter part, which is confirmation
+// These fields are used for verifying the authenticity of
+// request.
 const B02_MAC_FIELDS: string[] = [
   'B02K_VERS',
   'B02K_TIMESTMP',
@@ -35,8 +45,10 @@ const B02_MAC_FIELDS: string[] = [
   'secret'
 ];
 
+// Curried helper to extract only required values
 const b2Values: Function = u.valuesFromPayload(B02_MAC_FIELDS);
 
+// Helper function to find the service broker from B02 timestamp.
 const findProviderSecret: (timestamp: string) => string =
   (timestamp) =>
     // tslint:disable-next-line:no-any
@@ -94,8 +106,8 @@ export interface BrokerData {
 }
 
 /*
- * Check if TUPAS return data is valid
- * @param {VerifyPayload} Tupas verification payload
+ * Verify TUPAS return data is valid
+ * @param {VerifyPayload} Tupas verification payload, query values of tupas request
  * @returns {boolean}
  */
 export const verify: (payload: VerifyPayload) => boolean =
@@ -119,7 +131,7 @@ export const verify: (payload: VerifyPayload) => boolean =
  * @param {Callbacks} Success, reject and cancel callback definitions
  * @returns {Broker[]} Array of available brokers
  */
-export const get: (stamp: string, callbacks: Callbacks) => Broker[] =
+export const generate: (stamp: string, callbacks: Callbacks) => Broker[] =
   (stamp, callbacks) =>
     conf.get('providers').map((provider: BrokerData) => {
 
@@ -143,4 +155,4 @@ export const get: (stamp: string, callbacks: Callbacks) => Broker[] =
       };
     });
 
-export default { get, verify };
+export default { generate, verify };

@@ -41,7 +41,7 @@ app.use(async(ctx) => {
   };
 
   // tslint:disable:no-any
-  const data: any = Tupas.get(stamp, callbacks);
+  const data: any = Tupas.generate(stamp, callbacks);
   const brokers: any = render(data);
 
   if (Tupas.verify(ctx.query)) {
