@@ -8,16 +8,29 @@ const app: Koa = new Koa();
 
 app.use(bodyParser());
 
-const render: Function = (brokers) => {
-  return brokers.map((broker) => {
-
+const render: Function = (brokers) =>
+  brokers.map((broker) => {
     const res: string = R.values(R.mapObjIndexed((e, i) =>
-      `${i} <input type="text" value="${e}" name="${i}">`
-    , broker.fields)).join('<br>');
+      `<input type="hidden" value="${e}" name="${i}">`, broker.fields)).join('\n');
 
-    return `<form action="${broker.url}" method="post">${res}<button type="submit">${broker.name}</button></form>`;
-  });
-};
+    return `<form action="${broker.url}" method="post">
+              ${res}
+              <button type="submit">${broker.name}</button>
+            </form>`;
+  }).join('');
+
+const html: Function = (content) =>
+  `<!DOCTYPE html>
+  <html>
+  <head>
+    <title>TUPAS</title>
+  </head>
+
+  <body>
+    ${content}
+  </body>
+
+  </html>`;
 
 app.use(async(ctx) => {
   const stamp: string = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 20);
@@ -32,9 +45,15 @@ app.use(async(ctx) => {
   const brokers: any = render(data);
 
   if (Tupas.verify(ctx.query)) {
-    ctx.body = `<b>valid!</b><br>${brokers}`;
+    ctx.body = html(
+      `
+      <b>valid!</b>
+      <br>
+      ${brokers}
+      `
+    );
   } else {
-    ctx.body = `<b>authenticate!</b><br>${brokers}`;
+    ctx.body = html(`${brokers}`);
   }
 });
 

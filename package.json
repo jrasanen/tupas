@@ -1,8 +1,9 @@
 {
   "name": "tupas",
   "description": "TypeScript TUPAS implementation",
-  "private": true,
+  "private": false,
   "license": "MIT",
+  "version": "1.0.0",
   "engines": {
     "node": ">= 9"
   },
@@ -14,42 +15,33 @@
     "lint": "tslint --project -p tsconfig.json -c ./tslint.json",
     "lint:watch": "watch 'npm run lint -- --force' ./example ./src ./test -du --wait=0.2",
     "pretest": "rm -fr ./build && tsc || exit 0",
-    "test": "NODE_PATH=./build NODE_ENV=test istanbul cover -x 'build/config/config.js' _mocha -- build/test",
-    "posttest": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100"
+    "test": "NODE_PATH=./build NODE_ENV=test nyc _mocha -- build/test",
+    "posttest": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
-    "@types/chai-as-promised": "^7.1.0",
     "@types/convict": "^4.1.1",
+    "@types/koa": "^2.0.44",
     "@types/koa-bodyparser": "^4.2.0",
-    "@types/koa-router": "^7.0.27",
     "@types/mocha": "^2.2.48",
-    "@types/node": "^9.4.6",
-    "@types/supertest-as-promised": "^2.0.35",
+    "@types/ramda": "^0.25.18",
     "@types/uuid": "^3.4.3",
-    "@types/winston": "^2.3.8",
     "chai": "^4.1.2",
-    "chai-as-promised": "^7.1.1",
-    "concurrently": "^3.5.1",
     "convict": "^4.0.2",
-    "istanbul": "^0.4.5",
     "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
     "mocha": "^5.0.1",
-    "nodemon": "^1.14.12",
-    "supertest": "^3.0.0",
-    "supertest-as-promised": "^4.0.2",
+    "nodemon": "^1.15.0",
+    "nyc": "^11.4.1",
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
-    "tslint-eslint-rules": "^4.1.1",
+    "tslint-eslint-rules": "^5.0.0",
     "tslint-immutable": "^4.5.1",
-    "typescript": "^2.7.1",
     "uuid": "^3.2.1",
-    "watch": "^1.0.2",
-    "winston": "^2.4.0"
+    "watch": "^1.0.2"
   },
   "dependencies": {
-    "@types/ramda": "^0.25.18",
     "ramda": "^0.25.0",
-    "koa-bodyparser": "^4.2.0"
+    "typescript": "^2.7.2"
   }
 }

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Osuuspankki",
+    "url": "https://kultaraha.op.fi/cgi-bin/krcgi",
+    "version": "0003",
+    "key": "0001",
+    "type": "02",
+    "number": "500",
+    "id": "Esittelymyyja",
+    "secret": "Esittelykauppiaansalainentunnus"
+  },
+  {
+    "name": "Danskebank",
+    "url": "https://verkkopankki.sampopankki.fi/SP/tupaha/TupahaApp",
+    "version": "0003",
+    "key": "0001",
+    "type": "01",
+    "number": "800",
+    "id": "000000000000",
+    "secret": "pAwfvWTD7g9etWGNTVR5zCj5EhHt5yuHdLrxQH2BD5gZxk7xBUrfqubtYv8vZvs4"
+  },
+  {
+    "name": "Handelsbanken",
+    "url": "https://tunnistepalvelu.samlink.fi/TupasTunnistus/SHBtupas.html",
+    "version": "0002",
+    "key": "0001",
+    "type": "02",
+    "number": "310",
+    "id": "1111111111111",
+    "secret": "11111111111111111111"
+  },
+  {
+    "name": "Nordea",
+    "url": "https://tupas.nordea.fi/cgi-bin/SOLO3011",
+    "version": "0002",
+    "key": "0001",
+    "type": "01",
+    "number": "200",
+    "id": "87654321",
+    "secret": "LEHTI"
+  },
+  {
+    "name": "Aktia",
+    "url": "https://auth.aktia.fi/tupastest",
+    "version": "0003",
+    "key": "0001",
+    "type": "02",
+    "number": "410",
+    "id": "3333333333333",
+    "secret": "1234567890123456789012345678901234567890123456789012345678901234"
+  },
+  {
+    "name": "Ålandsbanken",
+    "url": "https://online.alandsbanken.fi/service/identify",
+    "version": "0002",
+    "key": "0001",
+    "type": "01",
+    "number": "600",
+    "id": "AABTUPASID",
+    "secret": "PAPAGAJA"
+  },
+  {
+    "name": "S-Pankki",
+    "url": "https://online.s-pankki.fi/service/identify",
+    "version": "0002",
+    "key": "0001",
+    "type": "01",
+    "number": "390",
+    "id": "SPANKKITUPAS",
+    "secret": "SPANKKI"
+  },
+  {
+    "name": "Säästöpankki",
+    "url": "https://tupas.saastopankki.fi",
+    "version": "0002",
+    "key": "0001",
+    "type": "01",
+    "number": "420",
+    "id": "1111111111111",
+    "secret": "11111111111111111111"
+  },
+  {
+    "name": "POP",
+    "url": "https://tupas.poppankki.fi",
+    "version": "0002",
+    "key": "0001",
+    "type": "01",
+    "number": "430",
+    "id": "1111111111111",
+    "secret": "11111111111111111111"
+  },
+  {
+    "name": "OmaSP",
+    "url": "https://tupas.omasp.fi",
+    "version": "0002",
+    "key": "0001",
+    "type": "02",
+    "number": "440",
+    "id": "1111111111111",
+    "secret": "11111111111111111111"
+  }
+]
