@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jrasanen/tupas.svg?branch=master)](https://travis-ci.org/jrasanen/tupas)
+
 # TUPAS
 
 ## DESCRIPTION
@@ -11,7 +13,7 @@ TypeScript TUPAS implementation.
 
 ## USAGE
 
-#### Tupas.generate(stamp: string, callbacks: Callbacks) => Broker[]
+### Tupas.generate(stamp: string, callbacks: Callbacks) => Broker[]
 Generate an array of supported service providers.
 
 * *stamp* - Unique alpha numeric 20 character string, identifying the current request
@@ -21,7 +23,7 @@ Generate an array of supported service providers.
   * *cancel* - when user cancels the authentication
 
 
-#### Tupas.verify(payload: VerifyPayload) => boolean
+### Tupas.verify(payload: VerifyPayload) => boolean
 Verify payload request's mac
 * B02K_TIMESTMP: string
 * B02K_VERS: string
