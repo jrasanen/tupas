@@ -30,6 +30,6 @@ describe('Tupas', () => {
 
   it('gets list of brokers', () =>
     expect(
-      Tupas.get('123', { success: '123', cancel: '123', reject: '123' })
+      Tupas.generate('123', { success: '123', cancel: '123', reject: '123' })
     ).to.be.an('array').with.lengthOf(10));
 });
