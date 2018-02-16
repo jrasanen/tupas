@@ -122,6 +122,7 @@ export const verify: (payload: VerifyPayload) => boolean =
 export const get: (stamp: string, callbacks: Callbacks) => Broker[] =
   (stamp, callbacks) =>
     conf.get('providers').map((provider: BrokerData) => {
+
       return {
         name: provider.name,
         url: provider.url,
